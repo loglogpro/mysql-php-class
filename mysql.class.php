@@ -1,6 +1,6 @@
 <?
 class DBC {
-  private static $_cache;
+  private static $_cache; 
   private $_link;
 
   private function DBC($config) {
@@ -14,7 +14,7 @@ class DBC {
     if (!$result) {
       die(__FUNCTION__." : DB connection error : ".mysql_error($this->_link));
     }
-    mb_internal_encoding("UTF-8");
+    mb_internal_encoding("UTF-8"); // you may have to change this
     $sql = "SET NAMES 'utf8'";
     mysql_query($sql, $this->_link);
     mysql_query ("SET @@local.wait_timeout=900;", $this->_link);
@@ -35,7 +35,8 @@ class DBC {
   public function getError() {
     return "" . mysql_errno($this->_link) . ": " . mysql_error($this->_link);
   }
-
+ 
+  //main query method. Will die on error.
   public function query($aQuery) {
     $result = mysql_query($aQuery, $this->_link);
     if (!$result) {
@@ -43,7 +44,7 @@ class DBC {
     }
     return $result;
   }
-
+  //Second query method. Will echo'd on error, not die.
   public function squery($aQuery) {
     $result = mysql_query($aQuery, $this->_link);
     if (!$result) {
@@ -57,10 +58,11 @@ class DBC {
     return;
   }
   
-  public function getID(){
+  //Getting ID of the last insterted record.
+  public function getLastID(){
 	return mysql_insert_id($this->_link);
   }
-
+ 
   public function _sql_validate_value($var) {
     if (is_null($var)) {
       return 'NULL';
@@ -76,7 +78,9 @@ class DBC {
   public function sql_escape($msg) {
     return @mysql_real_escape_string($msg);
   }
+  
 
+  //array-building helper method for long sql queries.
   public function sql_build_array($query, $assoc_ary = false) {
     if (!is_array($assoc_ary)) {
       return false;
