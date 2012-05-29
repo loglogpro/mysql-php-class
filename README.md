@@ -15,7 +15,7 @@ $config = array(
            'host' = 'localhost',  
            'user' = 'dbuser',    
            'password' = 'your_password',       
-           'db_name' = 'your_db_name',           
+           'db' = 'your_db_name',           
  );
 ```
 
