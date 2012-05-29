@@ -1,4 +1,8 @@
 <?
+//
+// Mysql PHP Class
+// https://github.com/okwinza/mysql-php-class
+//
 class DBC {
   private static $_cache; 
   private $_link;
