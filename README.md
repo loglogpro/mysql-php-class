@@ -16,7 +16,8 @@ $config = array(
            'user' = 'dbuser',    
            'password' = 'your_password',       
            'db_name' = 'your_db_name',           
- );```
+ );
+```
 
 Then create an instance by using:
 `$db = DBC::GetDefault($config);`
