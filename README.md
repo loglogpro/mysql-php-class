@@ -20,6 +20,8 @@ $config = array(
 ```
 
 Then create an instance by using:
-`$db = DBC::GetDefault($config);`
+```php
+$db = DBC::GetDefault($config);
+```
 
 As you can see, because of specific of singleton's pattern you won't get more than 1 instance of this class. It also means you can have only one connection at the time.
