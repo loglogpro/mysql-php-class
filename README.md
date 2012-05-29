@@ -36,5 +36,5 @@ $db->query($sql);
 ```
 You also can get an ID of the new record by calling 'getID' method right after your query.
 ```php
-$id = $db->getID();
+$id = $db->getLastID();
 ```
