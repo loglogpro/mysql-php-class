@@ -38,3 +38,35 @@ You also can get an ID of the new record by calling 'getID' method right after y
 ```php
 $id = $db->getLastID();
 ```
+
+Building large queries within a second:
+
+Sometimes we need to build a large, boring INSERT/SELECT queries.
+It's not a problem now - just let our singleton do all the dirty work.
+
+So, having a input data array like this:
+```php
+$data = array(
+		'foo' => 'bar',
+	        'val' => 'key',
+);
+```
+
+After using 
+```php
+$db->sql_build_array('{query_type}',$data);
+```
+We'll get the following result for 'query_type = SELECT':
+
+```php
+foo = 'bar' AND val = 'key'
+```
+
+and this one for 'query_type = INSERT':
+
+```php
+(foo, val) VALUES ('bar', 'key')
+```
+Pretty simple, isn't it?
+Also, all vars passed to the method will be automaticly filtered and escaped so you dont have to.
+
