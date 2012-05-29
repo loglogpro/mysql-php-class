@@ -39,7 +39,7 @@ You also can get an ID of the new record by calling 'getLastID' method right aft
 $id = $db->getLastID();
 ```
 
-Building large queries within a second:
+###Building large queries within a second:
 
 Sometimes we need to build a large, boring INSERT/SELECT queries.
 It's not a problem now - just let our singleton do all the dirty work.
