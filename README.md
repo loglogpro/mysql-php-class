@@ -5,7 +5,7 @@ So, my final goal is to create a tiny, userful and multifunctional library for r
 
 Feel free to contribute.
 
-Example & HOW TO
+HOW TO
 -------------------
 In fact, its extremely simple to get this thing to work.
 Just define the associative config array, i.e.
@@ -25,3 +25,16 @@ $db = DBC::GetDefault($config);
 ```
 
 As you can see, because of specific of singleton's pattern you won't get more than 1 instance of this class. It also means you can have only one connection at the time.
+
+Examples
+-------------------
+
+Insert query example:
+```php
+$sql = "INSERT INTO `table`(`row1`) VALUES ('val')";
+$db->query($sql);
+```
+You also can get an ID of the new record by calling 'getID' method right after your query.
+```php
+$id = $db->getID();
+```
