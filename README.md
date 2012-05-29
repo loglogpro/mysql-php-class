@@ -34,7 +34,7 @@ Insert query example:
 $sql = "INSERT INTO `table`(`row1`) VALUES ('val')";
 $db->query($sql);
 ```
-You also can get an ID of the new record by calling 'getID' method right after your query.
+You also can get an ID of the new record by calling 'getLastID' method right after your query.
 ```php
 $id = $db->getLastID();
 ```
@@ -47,22 +47,22 @@ It's not a problem now - just let our singleton do all the dirty work.
 So, having a input data array like this:
 ```php
 $data = array(
-		'foo' => 'bar',
-	        'val' => 'key',
+    'foo' => 'bar',
+    'val' => 'key',
 );
 ```
 
 After using 
 ```php
-$db->sql_build_array('{query_type}',$data);
+$db->sql_build_array('SELECT',$data);
 ```
-We'll get the following result for 'query_type = SELECT':
+We'll get the following result:
 
 ```php
 foo = 'bar' AND val = 'key'
 ```
 
-and this one for 'query_type = INSERT':
+and this one for INSERT type instead of SELECT:
 
 ```php
 (foo, val) VALUES ('bar', 'key')
