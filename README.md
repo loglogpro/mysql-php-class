@@ -10,10 +10,14 @@ Example & HOW TO
 In fact, its extremely simple to get this thing to work.
 Just define the associative config array, i.e.
 `    $config = array (     
-           'host' = 'localhost',      
-           'user' = 'dbuser',      
-           'password' = 'your_password',      
-           'db_name' = 'your_db_name',      
+           'host' = 'localhost',
+      
+           'user' = 'dbuser',   
+   
+           'password' = 'your_password',  
+    
+           'db_name' = 'your_db_name',    
+  
      );    `
 
 Then create an instance by using:
