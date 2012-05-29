@@ -9,14 +9,15 @@ Example & HOW TO
 -------------------
 In fact, its extremely simple to get this thing to work.
 Just define the associative config array, i.e.
-`$config = array (    
-           'host' = 'localhost',     
-           'user' = 'dbuser',     
-           'password' = 'your_password',     
-           'db_name' = 'your_db_name',     
+`$config = array (     
+           'host' = 'localhost',      
+           'user' = 'dbuser',      
+           'password' = 'your_password',      
+           'db_name' = 'your_db_name',      
  );`
 
 Then create an instance by using:
+
 `$db = DBC::GetDefault($config);`
 
 As you can see, because of specific of singleton's pattern you won't get more than 1 instance of this class. It also means you can have only one connection at the time.
